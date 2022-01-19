@@ -8,7 +8,7 @@ function checkSlackMessageSignature(req, res, next){
         return res.sendFail(401, "mismatched timestamp");
     }
 
-    const signing_secret = process.env.SIGNING_SECRET; 
+    const signing_secret = process.env.SLACK_SIGNING_SECRET; 
 
     const slack_signature = req.headers['x-slack-signature']; 
     const [version, slack_hash] = slack_signature.split('=');
